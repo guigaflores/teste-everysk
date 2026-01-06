@@ -1,0 +1,75 @@
+Overview
+You have been given a Python Flask application (Task Manager API) that needs to be deployed to Google Cloud Platform. Your task is to containerize, deploy, and set up monitoring for this application.
+
+The Application
+The Task Manager API is a simple REST API with the following endpoints:
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | Basic health check |
+| `/health/ready` | GET | Readiness check (verifies Firestore) |
+| `/tasks` | GET | List all tasks |
+| `/tasks` | POST | Create a new task |
+| `/tasks/<id>` | GET | Get a specific task |
+| `/tasks/<id>` | PUT | Update a task |
+| `/tasks/<id>` | DELETE | Delete a task |
+| `/metrics` | GET | Basic metrics |
+
+Required Environment Variables:
+
+GCP_PROJECT_ID - Your GCP project ID
+ENVIRONMENT - Environment name (e.g., "production")
+PORT - Port to run on (default: 8080)
+
+Your Tasks
+Part 1: Containerization
+
+1. Review the existing Dockerfile
+* Identify issues or improvements
+* Optimize the Dockerfile for production use
+
+
+2. Document your changes
+
+* Explain why you made each change
+
+
+3. Build and test locally (optional if Docker is available)
+
+
+Part 2: GCP Deployment
+
+1. Set up Firestore
+* Create a Firestore database in Native mode
+* Region: us-central1
+
+
+2. Create a Service Account
+
+* Name: task-manager-sa
+* Grant only the necessary permissions for the application
+* Document which roles you assigned and why
+
+
+3. Build and push the container image
+
+* Use Artifact Registry (not Container Registry)
+* Repository: assessment-repo
+* Tag with a meaningful version (not just latest)
+
+
+4. Deploy to Cloud Run
+
+* Service name: task-manager-api
+* Region: us-central1
+* Use the service account you created
+* Set appropriate environment variables
+* Configure reasonable resource limits
+
+
+5. Verify the deployment
+
+* Test all endpoints work correctly
+* Create at least 2 test tasks via the API
+
+Please feel free to contact us in case of questions or issues on the environment.
