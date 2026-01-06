@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'app.py'
+      - 'requirements.txt'
+      - 'Dockerfile'
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
